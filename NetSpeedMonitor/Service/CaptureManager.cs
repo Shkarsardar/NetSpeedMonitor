@@ -12,6 +12,15 @@ namespace USTC.Software.hanyizhao.NetSpeedMonitor
     /// <summary>
     /// This class handles the capture threads.
     /// </summary>
+    
+        private CaptureDeviceList devices;
+        private object lockDevices = new object();
+        private bool started = false;
+        
+        private NetworkStructure networkStructure = new NetworkStructure(new List<Network>());
+        private DelayRunManager delayRunManager = new DelayRunManager();
+        private UDMap uploadDownloadMap;
+    
     public class CaptureManager
     {
         /// <summary>
